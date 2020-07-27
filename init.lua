@@ -370,7 +370,7 @@ minetest.register_decoration({
 if mg_name ~= "v6" and mg_name ~= "singlenode" then
 	minetest.register_decoration({
 		deco_type = "schematic",
-		place_on = {"default:dirt", "default:sand", "swaz:silt_with_grass", "swaz:mud_with_moss", "swaz:mud"},
+		place_on = {"swaz:silt_with_grass", "swaz:mud_with_moss", "swaz:mud"},
 		sidelen = 16,
 		noise_params = {
 			offset = 0.05,
