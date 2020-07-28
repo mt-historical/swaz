@@ -546,5 +546,56 @@ if mg_name ~= "v6" and mg_name ~= "singlenode" then
 		y_min = 1,
 		y_max = 80,
 	})
+end
 
+-- Construction Materials
+
+minetest.register_node("swaz:adobe", {
+	description = S("Adobe Block"),
+	tiles = {"swaz_adobe.png"},
+	is_ground_content = false,
+	groups = {cracky = 3, stone = 1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_craft({
+	output = "swaz:adobe",
+	type = "shapeless",
+	recipe = {"swaz:mud", "farming:straw"},
+})
+
+minetest.register_node("swaz:mudbrick", {
+	description = S("Mudbrick"),
+	tiles = {"swaz_mudbrick.png"},
+	is_ground_content = false,
+	groups = {cracky = 3, stone = 1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_craft({
+	output = "swaz:mudbrick",
+	type = "shapeless",
+	recipe = {"swaz:adobe", "swaz:adobe", "swaz:adobe", "swaz:adobe"},
+})
+
+if minetest.get_modpath("stairs")~=nil then
+	stairs.register_stair_and_slab(
+		"adobe",
+		"swaz:adobe",
+		{cracky = 2, stone = 1},
+		{"swaz_adobe.png"},
+		S("Adobe Stair"),
+		S("Adobe Slab"),
+		default.node_sound_stone_defaults()
+	)
+
+	stairs.register_stair_and_slab(
+		"adobe_brick",
+		"swaz:mudbrick",
+		{cracky = 2, stone = 1},
+		{"swaz_mudbrick.png"},
+		S("Mudbrick Stair"),
+		S("Mudbrick Slab"),
+		default.node_sound_stone_defaults()
+	)
 end
