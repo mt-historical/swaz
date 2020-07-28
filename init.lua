@@ -41,6 +41,18 @@ minetest.register_biome({
 
 -- Register Nodes
 
+minetest.register_node("swaz:silt_with_grass", {
+	description = S("Silt with Grass"),
+	tiles = {"swaz_grass.png", "swaz_silt.png",
+		{name = "swaz_silt.png^swaz_silt_with_grass_side.png",
+			tileable_vertical = false}},
+	groups = {crumbly = 3, soil = 1, spreading_dirt_type = 1},
+	drop = "swaz:mud",
+	sounds = default.node_sound_dirt_defaults({
+		footstep = {name = "default_grass_footstep", gain = 0.25},
+	}),
+})
+
 minetest.register_node("swaz:limestone", {
 	description = S("Limestone"),
 	tiles = {"swaz_limestone.png"},
@@ -74,18 +86,6 @@ minetest.register_node("swaz:silt", {
 	tiles = {"swaz_silt.png"},
 	groups = {crumbly = 3, soil = 1},
 	sounds = default.node_sound_dirt_defaults(),
-})
-
-minetest.register_node("swaz:silt_with_grass", {
-	description = S("Silt with Grass"),
-	tiles = {"swaz_grass.png", "swaz_silt.png",
-		{name = "swaz_silt.png^swaz_silt_with_grass_side.png",
-			tileable_vertical = false}},
-	groups = {crumbly = 3, soil = 1, spreading_dirt_type = 1},
-	drop = "swaz:mud",
-	sounds = default.node_sound_dirt_defaults({
-		footstep = {name = "default_grass_footstep", gain = 0.25},
-	}),
 })
 
 minetest.register_node("swaz:water_source", {
@@ -267,54 +267,6 @@ minetest.register_node("swaz:lavender", {
 
 if mg_name ~= "v6" and mg_name ~= "singlenode" then
 
-	--Bald Cypress
-
-	minetest.register_decoration({
-		deco_type = "schematic",
-		place_on = {"default:dirt", "default:sand", "swaz:silt_with_grass"},
-		sidelen = 16,
-		noise_params = {
-			offset = 0.01,
-			scale = 0.005,
-			spread = {x = 250, y = 250, z = 250},
-			seed = 2,
-			octaves = 3,
-			persist = 0.66
-		},
-		biomes = {"swampz"},
-		height = 2,
-		y_min = 0,
-		y_max = 1000,
-		place_offset_y = 0,
-		schematic = minetest.get_modpath("baldcypress").."/schematics/baldcypress.mts",
-		flags = "place_center_x, place_center_z, force_placement",
-		rotation = "random",
-	})
-
-	--Willow
-
-	minetest.register_decoration({
-		deco_type = "schematic",
-		place_on = {"default:dirt", "default:sand", "swaz:silt_with_grass"},
-		sidelen = 16,
-		noise_params = {
-			offset = 0.01,
-			scale = 0.005,
-			spread = {x = 250, y = 250, z = 250},
-			seed = 2,
-			octaves = 3,
-			persist = 0.66
-		},
-		biomes = {"swampz"},
-		height = 2,
-		y_min = 0,
-		y_max = 1000,
-		place_offset_y = 0,
-		schematic = minetest.get_modpath("willow").."/schematics/willow.mts",
-		flags = "place_center_x, place_center_z, force_placement",
-		rotation = "random",
-	})
-
 	--Water Source (4x4)
 
 	minetest.register_decoration({
@@ -398,6 +350,54 @@ if mg_name ~= "v6" and mg_name ~= "singlenode" then
 		num_spawn_by = 1,
 		place_offset_y = -1,
 		flags = "place_center_x, place_center_z, force_placement",
+	})
+
+	--Bald Cypress
+
+	minetest.register_decoration({
+		deco_type = "schematic",
+		place_on = {"default:dirt", "default:sand", "swaz:silt_with_grass"},
+		sidelen = 16,
+		noise_params = {
+			offset = 0.01,
+			scale = 0.005,
+			spread = {x = 250, y = 250, z = 250},
+			seed = 2,
+			octaves = 3,
+			persist = 0.66
+		},
+		biomes = {"swampz"},
+		height = 2,
+		y_min = 0,
+		y_max = 1000,
+		place_offset_y = 0,
+		schematic = minetest.get_modpath("baldcypress").."/schematics/baldcypress.mts",
+		flags = "place_center_x, place_center_z, force_placement",
+		rotation = "random",
+	})
+
+	--Willow
+
+	minetest.register_decoration({
+		deco_type = "schematic",
+		place_on = {"default:dirt", "default:sand", "swaz:silt_with_grass"},
+		sidelen = 16,
+		noise_params = {
+			offset = 0.01,
+			scale = 0.005,
+			spread = {x = 250, y = 250, z = 250},
+			seed = 2,
+			octaves = 3,
+			persist = 0.66
+		},
+		biomes = {"swampz"},
+		height = 2,
+		y_min = 0,
+		y_max = 1000,
+		place_offset_y = 0,
+		schematic = minetest.get_modpath("willow").."/schematics/willow.mts",
+		flags = "place_center_x, place_center_z, force_placement",
+		rotation = "random",
 	})
 
 	--Mud  --this goes after mud with moss (depends on it)
