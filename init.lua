@@ -579,6 +579,7 @@ minetest.register_craft({
 })
 
 if minetest.get_modpath("stairs")~=nil then
+
 	stairs.register_stair_and_slab(
 		"adobe",
 		"swaz:adobe",
