@@ -503,9 +503,9 @@ if mg_name ~= "v6" and mg_name ~= "singlenode" then
 		height = 2,
 		y_min = 0,
 		y_max = 1000,
-		place_offset_y = 1,
+		place_offset_y = 0,
 		schematic = minetest.get_modpath("baldcypress").."/schematics/baldcypress.mts",
-		flags = "place_center_x, place_center_z",
+		flags = "place_center_x, place_center_z, force_placement",
 		rotation = "random",
 	})
 end
@@ -529,9 +529,9 @@ if mg_name ~= "v6" and mg_name ~= "singlenode" then
 		height = 2,
 		y_min = 0,
 		y_max = 1000,
-		place_offset_y = 1,
+		place_offset_y = 0,
 		schematic = minetest.get_modpath("willow").."/schematics/willow.mts",
-		flags = "place_center_x, place_center_z",
+		flags = "place_center_x, place_center_z, force_placement",
 		rotation = "random",
 	})
 end
