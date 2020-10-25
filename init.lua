@@ -14,7 +14,7 @@ minetest.register_biome({
 	node_water_top = "swaz:water_source",
 	depth_water_top = 1,
 	node_stone = "swaz:limestone",
-	y_max = 5,
+	y_max = 25,
 	y_min = 1,
 	heat_point = 80,
 	humidity_point = 89,
@@ -56,7 +56,6 @@ minetest.register_node("swaz:limestone", {
 	tiles = {"swaz_limestone.png"},
 	groups = {cracky = 3, stone = 1},
 	drop = "swaz:limestone",
-	legacy_mineral = true,
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -222,7 +221,7 @@ minetest.register_node("swaz:pampas_grass", {
 	description = S("Pampas Grass"),
 	drawtype = "plantlike",
 	waving = 1,
-	visual_scale = 0.8,
+	visual_scale = 0.9,
 	tiles = {"swaz_pampas_grass.png"},
 	inventory_image = "swaz_pampas_grass.png",
 	wield_image = "swaz_pampas_grass.png",
