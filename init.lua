@@ -71,7 +71,7 @@ minetest.register_node("swaz:mud_with_moss", {
 	tiles = {"swaz_moss.png", "swaz_mud.png",
 		{name = "swaz_mud.png^swaz_mud_with_moss_side.png",
 			tileable_vertical = false}},
-	groups = {crumbly = 3, soil = 1, spreading_dirt_type = 1},
+	groups = {crumbly = 3, soil = 1},
 	drop = "swaz:mud",
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name = "default_grass_footstep", gain = 0.25},
@@ -709,4 +709,43 @@ if minetest.get_modpath("stairs")~=nil then
 		S("Bricked Slab"),
 		default.node_sound_stone_defaults()
 	)
+end
+
+--Farming Support
+
+if minetest.get_modpath("farming")~=nil then
+
+	minetest.override_item("swaz:silt_with_grass", {
+		soil = {
+			base = "default:silt_with_grass",
+			dry = "swaz:soil",
+			wet = "swaz:soil_wet"
+		}
+	})
+
+	minetest.register_node("swaz:soil", {
+		description = S("Soil"),
+		tiles = {"swaz_silt.png^farming_soil.png", "swaz_silt.png"},
+		drop = "swaz:silt",
+		groups = {crumbly=3, not_in_creative_inventory=1, soil=2, grassland = 1, field = 1},
+		sounds = default.node_sound_dirt_defaults(),
+		soil = {
+			base = "swaz:silt",
+			dry = "swaz:soil",
+			wet = "swaz:soil_wet"
+		}
+	})
+
+	minetest.register_node("swaz:soil_wet", {
+		description = S("Wet Soil"),
+		tiles = {"swaz_silt.png^farming_soil_wet.png", "swaz_silt.png"},
+		drop = "swaz:silt",
+		groups = {crumbly=3, not_in_creative_inventory=1, soil=3, wet = 1, grassland = 1, field = 1},
+		sounds = default.node_sound_dirt_defaults(),
+		soil = {
+			base = "swaz:silt",
+			dry = "swaz:soil",
+			wet = "swaz:soil_wet"
+		}
+	})
 end
