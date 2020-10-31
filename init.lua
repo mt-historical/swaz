@@ -322,7 +322,7 @@ if mg_name ~= "v6" and mg_name ~= "singlenode" then
 		y_max = 1000,
 		place_offset_y = -2,
 		spawn_by = "swaz:water_source",
-		num_spawn_by = 4,
+		num_spawn_by = 6,
 		flags = "place_center_x, place_center_z, force_placement",
 		rotation = "random",
 	})
