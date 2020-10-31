@@ -14,7 +14,7 @@ minetest.register_biome({
 	node_water_top = "swaz:water_source",
 	depth_water_top = 1,
 	node_stone = "swaz:limestone",
-	y_max = 25,
+	y_max = 5,
 	y_min = 1,
 	heat_point = 80,
 	humidity_point = 89,
