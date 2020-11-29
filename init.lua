@@ -88,6 +88,13 @@ minetest.register_node("swaz:silt", {
 	sounds = default.node_sound_dirt_defaults(),
 })
 
+minetest.register_craft({
+	output = "swaz:silt",
+	type = "shapeless",
+	recipe = {"group:soil", "bucket:bucket_water"},
+	replacements = {{"bucket:bucket_water", "bucket:bucket_empty"}}
+})
+
 minetest.register_node("swaz:water_source", {
 	description = S("Muddy Water Source"),
 	drawtype = "liquid",
@@ -289,6 +296,10 @@ minetest.register_node("swaz:barberry_bush_leaves_with_berries", {
 	drop = "swaz:barberries",
 	sounds = default.node_sound_leaves_defaults(),
 	node_dig_prediction = "swaz:barberry_bush_leaves",
+	selection_box = {
+		type = "fixed",
+		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 2 / 16, 4 / 16}
+	},
 
 	after_dig_node = function(pos, oldnode, oldmetadata, digger)
 		minetest.set_node(pos, {name = "swaz:barberry_bush_leaves"})
@@ -311,6 +322,10 @@ minetest.register_node("swaz:barberry_bush_leaves", {
 		}
 	},
 	sounds = default.node_sound_leaves_defaults(),
+		selection_box = {
+		type = "fixed",
+		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 2 / 16, 4 / 16}
+	},
 
 	on_timer = function(pos, elapsed)
 		if minetest.get_node_light(pos) < 11 then
@@ -335,7 +350,7 @@ minetest.register_node("swaz:barberry_bush_sapling", {
 	on_timer = grow_sapling,
 	selection_box = {
 		type = "fixed",
-		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 2 / 16, 4 / 16}
+		fixed = {-2 / 16, -0.5, -1 / 16, 2 / 16, -2 / 16, 2 / 16}
 	},
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2,
 		attached_node = 1, sapling = 1},
@@ -383,13 +398,17 @@ if mg_name ~= "v6" and mg_name ~= "singlenode" then
 		height = 2,
 		y_min = 0,
 		y_max = 1000,
-		place_offset_y = 0,
+		place_offset_y = -1,
 		schematic = {
-			size = {x = 4, y = 1, z = 4},
+			size = {x = 4, y = 2, z = 4},
 			data = {
+				{name = "swaz:silt"}, {name = "swaz:silt"}, {name = "swaz:silt"},{name = "swaz:silt"},
 				{name = "swaz:silt_with_grass"}, {name = "swaz:silt_with_grass"}, {name = "swaz:silt_with_grass"},{name = "swaz:silt_with_grass"},
+				{name = "swaz:silt"}, {name = "swaz:silt"}, {name = "swaz:silt"},{name = "swaz:silt"},
 				{name = "swaz:silt_with_grass"}, {name = "swaz:water_source"}, {name = "swaz:water_source"},{name = "swaz:silt_with_grass"},
+				{name = "swaz:silt"}, {name = "swaz:silt"}, {name = "swaz:silt"},{name = "swaz:silt"},
 				{name = "swaz:silt_with_grass"}, {name = "swaz:water_source"}, {name = "swaz:water_source"},{name = "swaz:silt_with_grass"},
+				{name = "swaz:silt"}, {name = "swaz:silt"}, {name = "swaz:silt"},{name = "swaz:silt"},
 				{name = "swaz:silt_with_grass"}, {name = "swaz:silt_with_grass"}, {name = "swaz:silt_with_grass"},{name = "swaz:silt_with_grass"},
 			}
 		},
