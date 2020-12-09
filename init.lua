@@ -274,11 +274,6 @@ local function after_place_leaves(...)
 	return default.after_place_leaves(...)
 end
 
--- Required wrapper to allow customization of default.grow_sapling
-local function grow_sapling(...)
-	return default.grow_sapling(...)
-end
-
 minetest.register_craftitem("swaz:barberries", {
 	description = S("Barberries"),
 	inventory_image = "swaz_barberries.png",
@@ -347,7 +342,10 @@ minetest.register_node("swaz:barberry_bush_sapling", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	on_timer = grow_sapling,
+	on_timer = function(pos, elapsed)
+		minetest.set_node(pos, {name = "swaz:barberry_bush_leaves"})
+		minetest.get_node_timer(pos):start(math.random(300, 1500))
+	end,
 	selection_box = {
 		type = "fixed",
 		fixed = {-2 / 16, -0.5, -1 / 16, 2 / 16, -2 / 16, 2 / 16}
