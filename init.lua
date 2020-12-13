@@ -1019,3 +1019,16 @@ if minetest.get_modpath("farming")~=nil then
 		}
 	})
 end
+
+
+if minetest.get_modpath("bucket")~=nil then
+	bucket.register_liquid(
+		"swaz:water_source",
+		"swaz:water_flowing",
+		"swaz:bucket_swampy_water",
+		"swaz_swampy_water.png",
+		S("Swampy Water Bucket"),
+		{tool = 1, water_bucket = 1},
+		true
+	)
+end
