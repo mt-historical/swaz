@@ -17,8 +17,8 @@ minetest.register_biome({
 	node_stone = "swaz:limestone",
 	y_max = 7,
 	y_min = 1,
-	heat_point = 80,
-	humidity_point = 89,
+	heat_point = 80.1,
+	humidity_point = 89.1,
 	vertical_blend = 0,
 })
 
@@ -35,8 +35,8 @@ minetest.register_biome({
 	node_water_top = "swaz:water_source",
 	y_max = 0,
 	y_min = -5,
-	heat_point = 79,
-	humidity_point = 90,
+	heat_point = 79.1,
+	humidity_point = 90.1,
 	vertical_blend = 0,
 })
 
@@ -47,7 +47,7 @@ minetest.register_node("swaz:silt_with_grass", {
 	tiles = {"swaz_grass.png", "swaz_silt.png",
 		{name = "swaz_silt.png^swaz_silt_with_grass_side.png",
 			tileable_vertical = false}},
-	groups = {crumbly = 3, soil = 1, spreading_dirt_type = 1},
+	groups = {crumbly = 3, soil = 1},
 	drop = "swaz:mud",
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name = "default_grass_footstep", gain = 0.25},
