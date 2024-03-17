@@ -620,7 +620,7 @@ if mg_name ~= "v6" and mg_name ~= "singlenode" then
 
 	--Willow
 
-	local modpath_willow = minetest.get_modpath("baldcypress")
+	local modpath_willow = minetest.get_modpath("willow")
 
 	minetest.register_decoration({
 		deco_type = "schematic",
