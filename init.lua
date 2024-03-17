@@ -474,8 +474,6 @@ minetest.register_node("swaz:iris", {
 		end
 		local height = 1
 		local pos_top = {x = pos.x, y = pos.y + 1, z = pos.z}
-		local node_top = minetest.get_node(pos_top)
-		local def_top = minetest.registered_nodes[node_top.name]
 		local player_name = placer:get_player_name()
 
 
@@ -524,14 +522,17 @@ if mg_name ~= "v6" and mg_name ~= "singlenode" then
 		schematic = {
 			size = {x = 4, y = 2, z = 4},
 			data = {
-				{name = "swaz:silt"}, {name = "swaz:silt"}, {name = "swaz:silt"},{name = "swaz:silt"},
-				{name = "swaz:silt_with_grass"}, {name = "swaz:silt_with_grass"}, {name = "swaz:silt_with_grass"},{name = "swaz:silt_with_grass"},
-				{name = "swaz:silt"}, {name = "swaz:silt"}, {name = "swaz:silt"},{name = "swaz:silt"},
-				{name = "swaz:silt_with_grass"}, {name = "swaz:water_source"}, {name = "swaz:water_source"},{name = "swaz:silt_with_grass"},
-				{name = "swaz:silt"}, {name = "swaz:silt"}, {name = "swaz:silt"},{name = "swaz:silt"},
-				{name = "swaz:silt_with_grass"}, {name = "swaz:water_source"}, {name = "swaz:water_source"},{name = "swaz:silt_with_grass"},
-				{name = "swaz:silt"}, {name = "swaz:silt"}, {name = "swaz:silt"},{name = "swaz:silt"},
-				{name = "swaz:silt_with_grass"}, {name = "swaz:silt_with_grass"}, {name = "swaz:silt_with_grass"},{name = "swaz:silt_with_grass"},
+				{name = "swaz:silt"},{name = "swaz:silt"},{name = "swaz:silt"},
+				{name = "swaz:silt"},{name = "swaz:silt_with_grass"},{name = "swaz:silt_with_grass"},
+				{name = "swaz:silt_with_grass"},{name = "swaz:silt_with_grass"},{name = "swaz:silt"},
+				{name = "swaz:silt"},{name = "swaz:silt"},{name = "swaz:silt"},
+				{name = "swaz:silt_with_grass"},{name = "swaz:water_source"},{name = "swaz:water_source"},
+				{name = "swaz:silt_with_grass"},{name = "swaz:silt"},{name = "swaz:silt"},
+				{name = "swaz:silt"},{name = "swaz:silt"},{name = "swaz:silt_with_grass"},
+				{name = "swaz:water_source"},{name = "swaz:water_source"},{name = "swaz:silt_with_grass"},
+				{name = "swaz:silt"},{name = "swaz:silt"},{name = "swaz:silt"},
+				{name = "swaz:silt"},{name = "swaz:silt_with_grass"},{name = "swaz:silt_with_grass"},
+				{name = "swaz:silt_with_grass"},{name = "swaz:silt_with_grass"},
 			}
 		},
 		spawn_by = "swaz:silt_with_grass",
@@ -760,7 +761,8 @@ if mg_name ~= "v6" and mg_name ~= "singlenode" then
 		schematic = {
 			size = {x = 1, y = 4, z = 1},
 			data = {
-				{name = "swaz:reed", force_place = true}, {name = "swaz:reed", force_place = true}, {name = "swaz:reed"}, {name = "swaz:reed"}
+				{name = "swaz:reed", force_place = true},{name = "swaz:reed", force_place = true},
+				{name = "swaz:reed"},{name = "swaz:reed"}
 			}
 		},
 		spawn_by = "swaz:water_source",
