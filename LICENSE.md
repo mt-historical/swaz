@@ -19,8 +19,8 @@ GPL v3.0
  - `swaz_barberry_overlay.png` (modified)
  - `swaz_brick_wall.png`
  - `swaz_cemented_brick.png`
- - `swaz_grass.png`
- - `swaz_silt_with_grass_side.png`
+ - `swaz_grass.png` (modified)
+ - `swaz_silt_with_grass_side.png` (modified)
  - `swaz_mixed_brick_wall.png`
  - `swaz_moss.png`
  - `swaz_mud.png` (modified)
