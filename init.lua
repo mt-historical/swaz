@@ -593,6 +593,9 @@ if mg_name ~= "v6" and mg_name ~= "singlenode" then
 
 	--Bald Cypress
 
+	local modpath_baldcypress = minetest.get_modpath("baldcypress")
+	local fallback_scheme = minetest.get_modpath("default").."/schematics/jungle_tree.mts"
+
 	minetest.register_decoration({
 		deco_type = "schematic",
 		place_on = {"default:dirt", "default:sand", "swaz:silt_with_grass"},
@@ -610,13 +613,15 @@ if mg_name ~= "v6" and mg_name ~= "singlenode" then
 		y_min = 0,
 		y_max = 1000,
 		place_offset_y = 0,
-		schematic = minetest.get_modpath("baldcypress").."/schematics/baldcypress.mts",
+		schematic = modpath_baldcypress and modpath_baldcypress.."/schematics/baldcypress.mts" or fallback_scheme,
 		flags = "place_center_x, place_center_z, force_placement",
 		rotation = "random",
 	})
 
 	--Willow
 
+	local modpath_willow = minetest.get_modpath("baldcypress")
+
 	minetest.register_decoration({
 		deco_type = "schematic",
 		place_on = {"default:dirt", "default:sand", "swaz:silt_with_grass"},
@@ -634,7 +639,7 @@ if mg_name ~= "v6" and mg_name ~= "singlenode" then
 		y_min = 0,
 		y_max = 1000,
 		place_offset_y = 0,
-		schematic = minetest.get_modpath("willow").."/schematics/willow.mts",
+		schematic = modpath_willow and modpath_willow.."/schematics/willow.mts" or fallback_scheme,
 		flags = "place_center_x, place_center_z, force_placement",
 		rotation = "random",
 	})
